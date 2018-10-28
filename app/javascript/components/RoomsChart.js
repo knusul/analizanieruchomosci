@@ -1,24 +1,32 @@
 import { Line } from 'vue-chartjs'
 
 export default {
-    extends: Line,
-    mounted () {
-			var data;
-      this.$http.get('api/rooms').then(response => {
-        data = response.json
-			}, response => {
-        console.log(response);
-			});
+  extends: Line,
+  mounted () {
+    var data = [];
+    var labels = [];
+    this.$http.get('api/rooms/index').then(response => {
+      return response.json()
+    }, response => {
+      console.log(response);
+    }).then(response => {
+      for(const index of response['data']){
+        for (const [key, value] of Object.entries(index)) {
+          labels.push(key);
+          data.push(value);
+        };
+      };
+      this.renderChart({
+        labels: labels,
+        datasets: [
+          {
+            label: 'Data One',
+            backgroundColor: '#f87979',
+            data: data
+          }
+        ]
+      }, {responsive: true, maintainAspectRatio: false})
 
-          this.renderChart({
-                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                  datasets: [
-                            {
-                                        label: 'Data One',
-                                        backgroundColor: '#f87979',
-                                        data: [40, 39, 10, 40, 39, 80, 40]
-                                      }
-                          ]
-                }, {responsive: true, maintainAspectRatio: false})
-        }
+    });
+  }
 }
