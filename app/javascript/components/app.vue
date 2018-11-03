@@ -2,11 +2,13 @@
   <div id='app'>
     <p>{{ message }}</p>
     <line-chart></line-chart>
+    <averageOnMarket-chart></averageOnMarket-chart>
   </div>
 </template>
 
 <script>
   import lineChart from './RoomsChart.js'
+  import averageOnMarketChart from './RoomsAverageOnMarket.js'
   export default {
     data: function () {
       return {
@@ -14,7 +16,8 @@
       }
     },
     components: {
-       'line-chart': lineChart
+       'line-chart': lineChart,
+       'averageOnMarket-chart': averageOnMarketChart
     }
   }
 </script>
