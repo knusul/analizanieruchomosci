@@ -6,4 +6,8 @@ class Api::RoomsController < ApplicationController
   def by_age
     render json: {"data": Property.by_day_average_duration }
   end
+  p
+  def average_price
+    render json: {"data": Property.average_price }
+  end
 end

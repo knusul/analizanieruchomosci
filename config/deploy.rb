@@ -39,4 +39,4 @@ set :repo_url, "git@github.com:knusul/analizanieruchomosci.git"
 # set :ssh_options, verify_host_key: :secure
  #
 
- set :linked_files, %w{config/master.key}
+ set :linked_files, %w{config/master.key config/database.yml}

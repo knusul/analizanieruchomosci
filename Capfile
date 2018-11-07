@@ -8,8 +8,9 @@ set :rbenv_ruby, '2.5.1'
 # Include default deployment tasks
 require "capistrano/deploy"
 
-require 'capistrano/rails/migrations'
-require 'capistrano/bundler'
+#require 'capistrano/rails/migrations'
+#require 'capistrano/bundler'
+require 'capistrano/rails'
 
 # Load the SCM plugin appropriate to your project:
 #
