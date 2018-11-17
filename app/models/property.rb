@@ -25,4 +25,10 @@ class Property < ApplicationRecord
     }
   end
 
+  def self.heatmap_data
+    Property.all.select{|prop| prop.lon != nil && prop.lon != nil && prop.price != nil }.map do |property|
+      {lat: property.lat, lng: property.lon, count: property.price }
+    end
+  end
+
 end

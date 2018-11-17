@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get 'rooms/index'
     get 'rooms/by_age'
     get 'rooms/average_price'
+    get 'rooms/heatmap_data'
   end
   get 'landing/index'
   root to: 'landing#index'
